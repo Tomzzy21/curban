@@ -18,16 +18,16 @@ const newProducts: Product[] = [
     { id: 5, name: 'Curban Architectural Hoop Earrings', price: 142500, imageUrl: '/396196726_3639327329676014_91158986546847493_n.jpg' },
     { id: 6, name: 'Curban City Loafer', price: 315000, imageUrl: '/396483707_343655461671110_2241197779907392891_n.jpg' },
     { id: 7, name: 'Curban Essential Tote', price: 412500, imageUrl: '/441290730_752636596953239_8484300481466014957_n.jpg' },
+    { id: 8, name: 'Curban Statement Necklace', price: 187500, imageUrl: '/468538528_924249185853888_2422612676110172046_n.jpg' },
 ];
 
 
 const ProductCard: React.FC<{ product: Product; index: number }> = ({ product, index }) => {
-    let imageHeightClass = 'h-[300px]'; // Default smaller height
-    if (index === 0) {
-        imageHeightClass = 'h-[340px]'; // First image is taller
-    } else if (index === 1) {
-        imageHeightClass = 'h-[260px]'; // Second image is shorter
-    }
+    // Create a consistent pattern: every 3rd item is slightly taller
+    // This creates a nice rhythm in the masonry layout
+    const isTallItem = index % 3 === 0; // Every 3rd item is taller
+    const mobileHeight = isTallItem ? 'h-[360px]' : 'h-[300px]';
+    const desktopHeight = 'h-80';
 
     return (
         <div className="group cursor-pointer mb-6 break-inside-avoid">
@@ -35,13 +35,12 @@ const ProductCard: React.FC<{ product: Product; index: number }> = ({ product, i
                 <img 
                     src={getImageUrl(product.imageUrl)} 
                     alt={product.name} 
-                    className={`w-full ${imageHeightClass} object-cover group-hover:scale-105 transition-transform duration-500 ${
+                    className={`w-full ${mobileHeight} md:h-72 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-500 ${
                         product.name.includes('Architectural Hoop') ? 'object-left' : 'object-center'
                     }`}
                     style={{
                         ...(product.name.includes('Architectural Hoop') ? { objectPosition: '20% 50%' } : {}),
-                        maxWidth: '100%',
-                        height: 'auto'
+                        maxWidth: '100%'
                     }}
                 />
             </div>
@@ -64,7 +63,7 @@ const BestSellers: React.FC = () => {
                     </h2>
             </div>
             
-            <div className="columns-2 md:columns-3 lg:columns-4 gap-6">
+            <div className="columns-2 md:columns-3 lg:columns-4 gap-6 [&>div]:mb-6">
                  {newProducts.map((product, index) => (
                     <ProductCard key={product.id} product={product} index={index} />
                 ))}
