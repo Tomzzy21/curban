@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { LogoIcon, SearchIcon, UserIcon, CartIcon } from './Icons';
+import { SearchIcon, UserIcon, CartIcon } from './Icons';
+import { getImageUrl } from '../utils/imageUtils';
 
 const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,7 +13,7 @@ const Header: React.FC = () => {
                 <div className="flex items-center justify-between">
                     <a href="#" aria-label="Home" className="block">
                         <img 
-                            src="/logo.PNG" 
+                            src={getImageUrl('/logo.PNG')} 
                             alt="C Urban Palace Logo" 
                             className="h-20 w-20 sm:h-28 sm:w-28 object-contain" 
                         />

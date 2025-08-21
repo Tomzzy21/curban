@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { ArrowRightIcon } from './Icons';
+import { getImageUrl } from '../utils/imageUtils';
 
 interface Product {
     id: number;
@@ -32,12 +33,16 @@ const ProductCard: React.FC<{ product: Product; index: number }> = ({ product, i
         <div className="group cursor-pointer mb-6 break-inside-avoid">
             <div className="rounded-3xl overflow-hidden">
                 <img 
-                    src={product.imageUrl} 
+                    src={getImageUrl(product.imageUrl)} 
                     alt={product.name} 
                     className={`w-full ${imageHeightClass} object-cover group-hover:scale-105 transition-transform duration-500 ${
                         product.name.includes('Architectural Hoop') ? 'object-left' : 'object-center'
                     }`}
-                    style={product.name.includes('Architectural Hoop') ? { objectPosition: '20% 50%' } : {}}
+                    style={{
+                        ...(product.name.includes('Architectural Hoop') ? { objectPosition: '20% 50%' } : {}),
+                        maxWidth: '100%',
+                        height: 'auto'
+                    }}
                 />
             </div>
             <div className="mt-4">

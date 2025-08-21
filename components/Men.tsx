@@ -1,6 +1,6 @@
-
 import React, { useRef } from 'react';
 import { CartIcon, ChevronLeftIcon, ChevronRightIcon, ArrowRightIcon } from './Icons';
+import { getImageUrl } from '../utils/imageUtils';
 
 interface Product {
     id: number;
@@ -57,7 +57,7 @@ const products: Product[] = [
 const ProductCard: React.FC<{ product: Product }> = ({ product }) => (
     <div className="bg-white rounded-3xl p-4 flex flex-col h-full border border-gray-100 shadow-sm md:hover:shadow-xl transition-shadow duration-300">
         <div className="relative">
-            <img src={product.imageUrl} alt={product.name} className="w-full h-80 object-cover rounded-2xl" />
+            <img src={getImageUrl(product.imageUrl)} alt={product.name} className="w-full h-80 object-cover rounded-2xl" />
             <button className="absolute top-3 right-3 bg-white/50 backdrop-blur-sm text-brand-dark rounded-full p-2.5 hover:bg-white transition-colors">
                 <CartIcon className="w-5 h-5" />
             </button>

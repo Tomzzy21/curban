@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { ArrowRightIcon } from './Icons';
+import { getImageUrl } from '../utils/imageUtils';
 
 interface PromoProps {
   subtitle: string;
@@ -15,7 +16,7 @@ const Promo: React.FC<PromoProps> = ({ subtitle, title, buttonText, imageUrl, im
         <section className="relative bg-brand-dark py-24 sm:py-32 lg:py-40">
             <div className="absolute inset-0 z-0 opacity-40">
                 <img
-                    src={imageUrl}
+                    src={getImageUrl(imageUrl)}
                     alt={imageAlt}
                     className="w-full h-full object-cover"
                 />

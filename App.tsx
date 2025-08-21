@@ -25,7 +25,7 @@ const App: React.FC = () => {
             subtitle="The Men's Edit"
             title="For the modern man"
             buttonText="Discover Men's"
-            imageUrl="/men promo.jpg"
+            imageUrl="/men-promo.jpg"
             imageAlt="Stylish man in modern outfit"
           />
         </div>
@@ -38,7 +38,7 @@ const App: React.FC = () => {
             subtitle="The Women's Edit"
             title="Effortless elegance for every occasion."
             buttonText="Discover Women's"
-            imageUrl="/women promo.jpg"
+            imageUrl="/women-promo.jpg"
             imageAlt="Stylish woman in modern outfit"
           />
         </div>

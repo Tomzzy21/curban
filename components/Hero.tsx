@@ -1,16 +1,16 @@
 import React from 'react';
 import { ArrowRightIcon } from './Icons';
+import { getImageUrl } from '../utils/imageUtils';
 
 const Hero: React.FC = () => {
     return (
         <section className="relative h-[80vh] min-h-[600px] lg:h-screen flex items-center text-white">
             <div className="absolute inset-0 z-0">
                 <img
-                    src="/public/hero.jpg"
+                    src={getImageUrl('/hero.jpg')}
                     alt="Stylish clothing on display"
                     className="w-full h-full object-cover"
-                    loading="eager"
-                />
+                    loading="eager"/>
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/70 to-transparent"></div>
             </div>
             <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
